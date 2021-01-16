@@ -20,10 +20,10 @@ class ComposerStaticInitdedc6be7f0956fab31ab3a4d433b320c
         'def43f6c87e4f8dfd0c9e1b1bab14fe8' => __DIR__ . '/..' . '/symfony/polyfill-iconv/bootstrap.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
-        'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
+        'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
         '538ca81a9a966a6716601ecf48f4eaef' => __DIR__ . '/..' . '/opis/closure/functions.php',
         'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
@@ -44,6 +44,11 @@ class ComposerStaticInitdedc6be7f0956fab31ab3a4d433b320c
         'p' => 
         array (
             'phpDocumentor\\Reflection\\' => 25,
+        ),
+        'j' => 
+        array (
+            'jeremykenedy\\Slack\\Laravel\\' => 27,
+            'jeremykenedy\\Slack\\' => 19,
         ),
         'X' => 
         array (
@@ -128,6 +133,7 @@ class ComposerStaticInitdedc6be7f0956fab31ab3a4d433b320c
         ),
         'I' => 
         array (
+            'Illuminate\\Notifications\\' => 25,
             'Illuminate\\Foundation\\Auth\\' => 27,
             'Illuminate\\' => 11,
         ),
@@ -184,6 +190,14 @@ class ComposerStaticInitdedc6be7f0956fab31ab3a4d433b320c
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
             1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
+        ),
+        'jeremykenedy\\Slack\\Laravel\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jeremykenedy/slack-laravel/src',
+        ),
+        'jeremykenedy\\Slack\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jeremykenedy/slack/src',
         ),
         'XdgBaseDir\\' => 
         array (
@@ -389,6 +403,10 @@ class ComposerStaticInitdedc6be7f0956fab31ab3a4d433b320c
         array (
             0 => __DIR__ . '/..' . '/laravel/tinker/src',
         ),
+        'Illuminate\\Notifications\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravel/slack-notification-channel/src',
+        ),
         'Illuminate\\Foundation\\Auth\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/ui/auth-backend',
@@ -503,7 +521,14 @@ class ComposerStaticInitdedc6be7f0956fab31ab3a4d433b320c
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
+        'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
+        'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
+        'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
+        'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
+        'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',
@@ -513,6 +538,7 @@ class ComposerStaticInitdedc6be7f0956fab31ab3a4d433b320c
         'App\\Http\\Middleware\\TrustHosts' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustHosts.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Notifications\\TestNotification' => __DIR__ . '/../..' . '/app/Notifications/TestNotification.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
@@ -610,6 +636,7 @@ class ComposerStaticInitdedc6be7f0956fab31ab3a4d433b320c
         'Carbon\\Traits\\Units' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Traits/Units.php',
         'Carbon\\Traits\\Week' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Traits/Week.php',
         'Carbon\\Translator' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Translator.php',
+        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/CronExpression.php',
         'Cron\\DayOfMonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/DayOfMonthField.php',
@@ -2105,6 +2132,7 @@ class ComposerStaticInitdedc6be7f0956fab31ab3a4d433b320c
         'Illuminate\\Notifications\\Channels\\BroadcastChannel' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Notifications/Channels/BroadcastChannel.php',
         'Illuminate\\Notifications\\Channels\\DatabaseChannel' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Notifications/Channels/DatabaseChannel.php',
         'Illuminate\\Notifications\\Channels\\MailChannel' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Notifications/Channels/MailChannel.php',
+        'Illuminate\\Notifications\\Channels\\SlackWebhookChannel' => __DIR__ . '/..' . '/laravel/slack-notification-channel/src/Channels/SlackWebhookChannel.php',
         'Illuminate\\Notifications\\Console\\NotificationTableCommand' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Notifications/Console/NotificationTableCommand.php',
         'Illuminate\\Notifications\\DatabaseNotification' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Notifications/DatabaseNotification.php',
         'Illuminate\\Notifications\\DatabaseNotificationCollection' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Notifications/DatabaseNotificationCollection.php',
@@ -2117,12 +2145,16 @@ class ComposerStaticInitdedc6be7f0956fab31ab3a4d433b320c
         'Illuminate\\Notifications\\Messages\\DatabaseMessage' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Notifications/Messages/DatabaseMessage.php',
         'Illuminate\\Notifications\\Messages\\MailMessage' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Notifications/Messages/MailMessage.php',
         'Illuminate\\Notifications\\Messages\\SimpleMessage' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Notifications/Messages/SimpleMessage.php',
+        'Illuminate\\Notifications\\Messages\\SlackAttachment' => __DIR__ . '/..' . '/laravel/slack-notification-channel/src/Messages/SlackAttachment.php',
+        'Illuminate\\Notifications\\Messages\\SlackAttachmentField' => __DIR__ . '/..' . '/laravel/slack-notification-channel/src/Messages/SlackAttachmentField.php',
+        'Illuminate\\Notifications\\Messages\\SlackMessage' => __DIR__ . '/..' . '/laravel/slack-notification-channel/src/Messages/SlackMessage.php',
         'Illuminate\\Notifications\\Notifiable' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Notifications/Notifiable.php',
         'Illuminate\\Notifications\\Notification' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Notifications/Notification.php',
         'Illuminate\\Notifications\\NotificationSender' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Notifications/NotificationSender.php',
         'Illuminate\\Notifications\\NotificationServiceProvider' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Notifications/NotificationServiceProvider.php',
         'Illuminate\\Notifications\\RoutesNotifications' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Notifications/RoutesNotifications.php',
         'Illuminate\\Notifications\\SendQueuedNotifications' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Notifications/SendQueuedNotifications.php',
+        'Illuminate\\Notifications\\SlackChannelServiceProvider' => __DIR__ . '/..' . '/laravel/slack-notification-channel/src/SlackChannelServiceProvider.php',
         'Illuminate\\Pagination\\AbstractPaginator' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Pagination/AbstractPaginator.php',
         'Illuminate\\Pagination\\LengthAwarePaginator' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Pagination/LengthAwarePaginator.php',
         'Illuminate\\Pagination\\PaginationServiceProvider' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Pagination/PaginationServiceProvider.php',
@@ -4314,7 +4346,6 @@ class ComposerStaticInitdedc6be7f0956fab31ab3a4d433b320c
         'Symfony\\Component\\EventDispatcher\\Debug\\TraceableEventDispatcher' => __DIR__ . '/..' . '/symfony/event-dispatcher/Debug/TraceableEventDispatcher.php',
         'Symfony\\Component\\EventDispatcher\\Debug\\WrappedListener' => __DIR__ . '/..' . '/symfony/event-dispatcher/Debug/WrappedListener.php',
         'Symfony\\Component\\EventDispatcher\\DependencyInjection\\AddEventAliasesPass' => __DIR__ . '/..' . '/symfony/event-dispatcher/DependencyInjection/AddEventAliasesPass.php',
-        'Symfony\\Component\\EventDispatcher\\DependencyInjection\\ExtractingEventDispatcher' => __DIR__ . '/..' . '/symfony/event-dispatcher/DependencyInjection/RegisterListenersPass.php',
         'Symfony\\Component\\EventDispatcher\\DependencyInjection\\RegisterListenersPass' => __DIR__ . '/..' . '/symfony/event-dispatcher/DependencyInjection/RegisterListenersPass.php',
         'Symfony\\Component\\EventDispatcher\\EventDispatcher' => __DIR__ . '/..' . '/symfony/event-dispatcher/EventDispatcher.php',
         'Symfony\\Component\\EventDispatcher\\EventDispatcherInterface' => __DIR__ . '/..' . '/symfony/event-dispatcher/EventDispatcherInterface.php',
@@ -4683,7 +4714,6 @@ class ComposerStaticInitdedc6be7f0956fab31ab3a4d433b320c
         'Symfony\\Component\\Routing\\Loader\\GlobFileLoader' => __DIR__ . '/..' . '/symfony/routing/Loader/GlobFileLoader.php',
         'Symfony\\Component\\Routing\\Loader\\ObjectLoader' => __DIR__ . '/..' . '/symfony/routing/Loader/ObjectLoader.php',
         'Symfony\\Component\\Routing\\Loader\\PhpFileLoader' => __DIR__ . '/..' . '/symfony/routing/Loader/PhpFileLoader.php',
-        'Symfony\\Component\\Routing\\Loader\\ProtectedPhpFileLoader' => __DIR__ . '/..' . '/symfony/routing/Loader/PhpFileLoader.php',
         'Symfony\\Component\\Routing\\Loader\\XmlFileLoader' => __DIR__ . '/..' . '/symfony/routing/Loader/XmlFileLoader.php',
         'Symfony\\Component\\Routing\\Loader\\YamlFileLoader' => __DIR__ . '/..' . '/symfony/routing/Loader/YamlFileLoader.php',
         'Symfony\\Component\\Routing\\Matcher\\CompiledUrlMatcher' => __DIR__ . '/..' . '/symfony/routing/Matcher/CompiledUrlMatcher.php',
@@ -4932,6 +4962,18 @@ class ComposerStaticInitdedc6be7f0956fab31ab3a4d433b320c
         'Whoops\\Util\\SystemFacade' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/SystemFacade.php',
         'Whoops\\Util\\TemplateHelper' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/TemplateHelper.php',
         'XdgBaseDir\\Xdg' => __DIR__ . '/..' . '/dnoegel/php-xdg-base-dir/src/Xdg.php',
+        'jeremykenedy\\Slack\\ActionConfirmation' => __DIR__ . '/..' . '/jeremykenedy/slack/src/ActionConfirmation.php',
+        'jeremykenedy\\Slack\\Attachment' => __DIR__ . '/..' . '/jeremykenedy/slack/src/Attachment.php',
+        'jeremykenedy\\Slack\\AttachmentAction' => __DIR__ . '/..' . '/jeremykenedy/slack/src/AttachmentAction.php',
+        'jeremykenedy\\Slack\\AttachmentField' => __DIR__ . '/..' . '/jeremykenedy/slack/src/AttachmentField.php',
+        'jeremykenedy\\Slack\\Client' => __DIR__ . '/..' . '/jeremykenedy/slack/src/Client.php',
+        'jeremykenedy\\Slack\\Laravel\\Facade' => __DIR__ . '/..' . '/jeremykenedy/slack-laravel/src/Facade.php',
+        'jeremykenedy\\Slack\\Laravel\\Fakes\\MessageFake' => __DIR__ . '/..' . '/jeremykenedy/slack-laravel/src/Fakes/MessageFake.php',
+        'jeremykenedy\\Slack\\Laravel\\Fakes\\SlackFake' => __DIR__ . '/..' . '/jeremykenedy/slack-laravel/src/Fakes/SlackFake.php',
+        'jeremykenedy\\Slack\\Laravel\\ServiceProvider' => __DIR__ . '/..' . '/jeremykenedy/slack-laravel/src/ServiceProvider.php',
+        'jeremykenedy\\Slack\\Laravel\\ServiceProviderLaravel4' => __DIR__ . '/..' . '/jeremykenedy/slack-laravel/src/ServiceProviderLaravel4.php',
+        'jeremykenedy\\Slack\\Laravel\\ServiceProviderLaravel5' => __DIR__ . '/..' . '/jeremykenedy/slack-laravel/src/ServiceProviderLaravel5.php',
+        'jeremykenedy\\Slack\\Message' => __DIR__ . '/..' . '/jeremykenedy/slack/src/Message.php',
         'phpDocumentor\\Reflection\\DocBlock' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock.php',
         'phpDocumentor\\Reflection\\DocBlockFactory' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactory.php',
         'phpDocumentor\\Reflection\\DocBlockFactoryInterface' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactoryInterface.php',

@@ -83,7 +83,13 @@
                 <div class="title m-b-md">
                     Laravel
                 </div>
+<a href="{{ route('slack_message_send') }}">Send Message</a>
+<form action="{{ route('slack_message_send') }}" method="post">
 
+    @csrf
+    <input type="submit" name="submit">
+    
+</form>
                 <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
                     <a href="https://laracasts.com">Laracasts</a>
