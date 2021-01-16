@@ -17,14 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Auth::routes();
+Route::get('/test1', function () {
+    return view('test1');
+});
 
-//Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes();
 
 Route::post('slack-message', 'HomeController@send_slack_message')->name('slack_message_send');
-
-//http://mdo.spacep.space/incoming-notifications
-
-//CCVakjSala0nFaCIsnKjPqLv
-
-Route::post('incoming-notifications', 'HomeController@receive_messages')
