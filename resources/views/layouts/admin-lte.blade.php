@@ -6,6 +6,7 @@
   <title>{{ config('app.name', 'MDO') }}</title>
 
   @include('layouts.includes.head')
+  @stack('header_scripts')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -42,11 +43,8 @@
 <script src="{{asset('adminlte/plugins/filterizr/jquery.filterizr.min.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('adminlte/js/demo.js')}}"></script>
-<!-- Page specific script -->
-<script>
-  $(function () {
 
-  })
-</script>
+<!-- Page specific script -->
+@stack('footer_scripts')
 </body>
 </html>

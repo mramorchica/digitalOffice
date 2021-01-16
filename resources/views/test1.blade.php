@@ -34,3 +34,9 @@
 </section>
     <!-- /.content -->
 @endsection
+
+@push('footer_scripts')
+<script type="text/javascript">
+  console.log('test footer scripts!')
+</script>
+@endpush
