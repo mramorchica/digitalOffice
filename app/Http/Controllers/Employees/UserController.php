@@ -115,6 +115,6 @@ class UserController extends Controller
     {
         $user->delete();
 
-        return redirect('users')->with('msg_dangeer', 'Successfully deleted user!');
+        return redirect('users')->with('msg_danger', 'Successfully deleted user!');
     }
 }
