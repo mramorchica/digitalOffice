@@ -10,7 +10,6 @@ class SlackNotificationsController extends Controller
 {
     public function receive_messages(Request $request)
     {
-//       
         $notif = new SlackNotification;
 
         $notif->message = 'slack message';
@@ -26,5 +25,13 @@ class SlackNotificationsController extends Controller
 
         return redirect()->back();
         
+    }
+
+    public function read_new_messages()
+    {
+        $new_messages = SlackNotification::read_new_user_messages();
+        session(['new_messages' => 0]);
+
+        return view('notifications.slack.index', compact('new_messages'));
     }
 }
