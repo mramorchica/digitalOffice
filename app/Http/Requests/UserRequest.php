@@ -24,11 +24,12 @@ class UserRequest extends FormRequest
     public function rules()
     {
         $isUpdateRequest = !empty($this->request->all()['user_id']);
-        
+
         return [
             'name' => 'required|min:8',
             'email' => ['required', 'string', 'email', 'max:255', ($isUpdateRequest) ? '' : 'unique:users'],
             'phone' => 'required',
+            'role' => 'required',
             'department_id' => 'required',
             'position_id' => 'required',
             'level' => 'nullable'

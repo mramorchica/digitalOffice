@@ -32,6 +32,7 @@
         <thead>
           <tr>
             <th>Names</th>
+            <th>User Role</th>
             <th>Position</th>
             <th>Department</th>
             <th>Phone</th>
@@ -43,6 +44,7 @@
           @foreach($users as $user)
           <tr>
             <td>{{ $user->name }}</td>
+            <td>{{ $user->role }}</td>
             <td>{{ $user->position->name }}</td>
             <td>{{ $user->department->name }}</td>
             <td>{{ $user->phone }}</td>

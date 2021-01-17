@@ -50,6 +50,18 @@
           </div>
 
           <div class="form-group row">
+            <label for="role" class="col-sm-2 col-form-label">Role</label>
+            <div class="col-sm-10">
+              <select name="role" id="role" class="form-control">
+                <option value="" required></option>
+                @foreach($roles as $key => $value)
+                  <option value="{{$key}}" {{ old('role') == $key ? 'selected' : '' }}>{{$value}}</option>
+                @endforeach
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group row">
             <label for="department_id" class="col-sm-2 col-form-label">Department</label>
             <div class="col-sm-10">
               <select name="department_id" id="department_id" class="form-control">

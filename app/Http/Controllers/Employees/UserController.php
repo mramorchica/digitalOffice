@@ -33,10 +33,12 @@ class UserController extends Controller
      */
     public function create()
     {
+        $roles = config('consts.USER_ROLES');
         $positions = Position::all();
         $departments = Department::all();
 
         return view('employees.users.create', [
+            'roles' => $roles,
             'positions' => $positions,
             'departments' => $departments,
         ]);
@@ -76,11 +78,13 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+        $roles = config('consts.USER_ROLES');
         $positions = Position::all();
         $departments = Department::all();
 
         return view('employees.users.edit', [
             'user' => $user,
+            'roles' => $roles,
             'positions' => $positions,
             'departments' => $departments,
         ]);

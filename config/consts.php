@@ -6,4 +6,9 @@ return [
 		'manager' => 'Manager',
 		'operations' => 'Operations',
 	],
+
+	'USER_ROLES' => [
+		'admin' => 'Admin',
+		'user' => 'User',
+	],
 ];
