@@ -11,4 +11,6 @@ return [
 		'admin' => 'Admin',
 		'user' => 'User',
 	],
+
+	'ROLE_ADMIN' => 'admin',
 ];

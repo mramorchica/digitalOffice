@@ -27,7 +27,9 @@
     </div>
     <div class="card-body p-0">
       @include('includes.flash_msgs')
-      <a href="{{url('/users/create')}}" class="btn btn-success"> New User</a> 
+      @if(Auth::user()->role == config('consts.ROLE_ADMIN'))
+        <a href="{{url('/users/create')}}" class="btn btn-success"> New User</a> 
+      @endif
       <table id="users-table" class="table table-bordered table-hover">
         <thead>
           <tr>
@@ -37,7 +39,9 @@
             <th>Department</th>
             <th>Phone</th>
             <th>Email</th>
-            <th>Action</th>
+            @if(Auth::user()->role == config('consts.ROLE_ADMIN'))
+              <th>Action</th>
+            @endif
           </tr>
         </thead>
         <tbody>
@@ -49,17 +53,19 @@
             <td>{{ $user->department->name }}</td>
             <td>{{ $user->phone }}</td>
             <td>{{ $user->email }}</td>
-            <td>
-              <form action='{{ url("/users/$user->id") }}' method="POST">
-                <a href='{{url("/users/$user->id/edit")}}' class="btn btn-warning" title='Edit'> 
-                  Edit
-                </a>
+            @if(Auth::user()->role == config('consts.ROLE_ADMIN'))
+              <td>
+                <form action='{{ url("/users/$user->id") }}' method="POST">
+                  <a href='{{url("/users/$user->id/edit")}}' class="btn btn-warning" title='Edit'> 
+                    Edit
+                  </a>
 
-                @csrf
-                @method('DELETE')
-                <button class="btn btn-danger deleteBtn" title='Delete' > Delete </button>
-              </form>
-            </td>
+                  @csrf
+                  @method('DELETE')
+                  <button class="btn btn-danger deleteBtn" title='Delete' > Delete </button>
+                </form>
+              </td>
+            @endif
           </tr>
           @endforeach
         </tbody>
