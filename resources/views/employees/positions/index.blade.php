@@ -51,7 +51,7 @@
 
                 @csrf
                 @method('DELETE')
-                <button class="btn btn-danger deleteBtn" title='Delete' > Delete </button>
+                <button class="btn btn-danger delete-btn" title='Delete' > Delete </button>
               </form>
             </td>
           </tr>

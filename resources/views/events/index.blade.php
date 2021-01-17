@@ -55,7 +55,7 @@
 								      onsubmit="return ConfirmDelete()">
 									{{ method_field('DELETE') }}
 									@csrf
-									<button type="submit" class="btn btn-danger delete-client-btn" value="delete">Delete</button>
+									<button type="submit" class="btn btn-danger delete-btn" value="delete">Delete</button>
 								</form>
 							</td>
 						</tr>
@@ -99,6 +99,8 @@
 @endsection
 
 @push('footer_scripts')
+	<script src="{{asset('js/custom.js')}}"></script>
+
 	<script src="{{asset('adminlte/plugins/jquery/jquery.min.js')}}"></script>
 	<script src="{{asset('adminlte/plugins/datatables/jquery.dataTables.min.js')}}"></script>
 	<script src="{{asset('adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
