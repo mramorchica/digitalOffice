@@ -27,6 +27,7 @@
     </div>
     <div class="card-body p-0">
       @include('includes.flash_msgs')
+      
       @if(Auth::user()->role == config('consts.ROLE_ADMIN'))
         <a href="{{url('/users/create')}}" class="btn btn-success"> New User</a> 
       @endif
@@ -62,7 +63,7 @@
 
                   @csrf
                   @method('DELETE')
-                  <button class="btn btn-danger deleteBtn" title='Delete' > Delete </button>
+                  <button class="btn btn-danger delete-btn" title='Delete' > Delete </button>
                 </form>
               </td>
             @endif
@@ -81,4 +82,26 @@
 
 @push('footer_scripts')
   <script src="{{asset('js/custom.js')}}"></script>
+
+  <script src="{{asset('adminlte/plugins/jquery/jquery.min.js')}}"></script>
+  <script src="{{asset('adminlte/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+  <script src="{{asset('adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+  <script src="{{asset('adminlte/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
+  <script src="{{asset('adminlte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
+  <script src="{{asset('adminlte/plugins/datatables-buttons/js/dataTables.buttons.min.js')}}"></script>
+  <script src="{{asset('adminlte/plugins/datatables-buttons/js/buttons.bootstrap4.min.js')}}"></script>
+  <script src="{{asset('adminlte/plugins/jszip/jszip.min.js')}}"></script>
+  <script src="{{asset('adminlte/plugins/pdfmake/pdfmake.min.js')}}"></script>
+  <script src="{{asset('adminlte/plugins/pdfmake/vfs_fonts.js')}}"></script>
+  <script src="{{asset('adminlte/plugins/datatables-buttons/js/buttons.html5.min.js')}}"></script>
+  <script src="{{asset('adminlte/plugins/datatables-buttons/js/buttons.print.min.js')}}"></script>
+  <script src="{{asset('adminlte/plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
+  <script type="text/javascript">
+        $(function () {
+            $("#users-table").DataTable({
+                "responsive": true, "lengthChange": false, "autoWidth": false,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        });
+  </script>
 @endpush
