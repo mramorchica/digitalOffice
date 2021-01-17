@@ -31,6 +31,8 @@ Route::middleware('auth')->group(function () {
 	Route::resource('positions', 'Employees\PositionController');
 	Route::resource('departments', 'Employees\DepartmentController');
 	Route::resource('users', 'Employees\UserController');
+	Route::get('/jobs/show-list', 'JobController@showList');	
+	Route::resource('jobs', 'JobController');
   Route::resource('events', 'EventController')->except(['index','show']);
   Route::get('events','EventController@index')->name('events.index')->middleware('checkUserRoleForEvents');
 	Route::resource('news', 'NewsController');

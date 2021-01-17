@@ -74,6 +74,20 @@
                 Events
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{ url('jobs/show-list') }}" class="dropdown-item">
+                <i class="nav-icon fa fa-suitcase"></i>
+                Open Positions List
+            </a>
+          </li>
+          @if(Auth::user()->role == config('consts.ROLE_ADMIN'))
+            <li class="nav-item">
+              <a href="{{ url('jobs') }}" class="dropdown-item">
+                  <i class="nav-icon fa fa-cog"></i>
+                  Manage Open Positions
+              </a>
+            </li>
+          @endif
           
           <li class="nav-header">------</li>
           <li class="nav-item">
