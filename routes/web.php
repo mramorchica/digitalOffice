@@ -32,7 +32,8 @@ Route::middleware('auth')->group(function () {
 	Route::resource('users', 'Employees\UserController');
   
 	Route::resource('news', 'NewsController');
-	Route::resource('news_categories', 'NewsCategoriesController')->except('show');	
+	Route::resource('news_categories', 'NewsCategoriesController')->except('show');
 	Route::get('new-slack-messages', 'SlackNotificationsController@check_messages')->name('check_slack_messages');
+	Route::get('read-new-slack-messages', 'SlackNotificationsController@read_new_messages')->name('read_new_messages');
 });
 
