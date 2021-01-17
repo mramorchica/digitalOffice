@@ -24,3 +24,10 @@ Route::get('/test1', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::middleware('auth')->group(function () {
+	Route::resource('positions', 'Employees\PositionController');
+	Route::resource('departments', 'Employees\DepartmentController');
+	Route::resource('users', 'Employees\UserController');
+	
+});
