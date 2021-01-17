@@ -2,7 +2,7 @@
 
 Staff Communication management system for big organisations. A project developed for SoftUni Fest 2021.
 
-## http://mdoo.spacep.space
+## http://mdo.spacep.space
 
 The project is uploaded on live server
 
