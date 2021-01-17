@@ -74,6 +74,12 @@
                 Events
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{ url('jobs') }}" class="dropdown-item">
+                <i class="nav-icon fa fa-suitcase"></i>
+                Open Positions
+            </a>
+          </li>
           
           <li class="nav-header">------</li>
           <li class="nav-item">

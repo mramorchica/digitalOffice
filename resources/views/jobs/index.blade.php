@@ -5,7 +5,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-6">
-        <h1>Departments Management</h1>
+        <h1>Open Positions Management</h1>
       </div>
     </div>
   </div>
@@ -17,7 +17,7 @@
   <!-- Default box -->
   <div class="card">
     <div class="card-header">
-      <h3 class="card-title">Departments List</h3>
+      <h3 class="card-title">Open Positions List</h3>
 
       <div class="card-tools">
         <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -27,23 +27,37 @@
     </div>
     <div class="card-body p-0">
       @include('includes.flash_msgs')
-      <a href="{{url('/departments/create')}}" class="btn btn-success"> New Department</a> 
-      <table id="departments-table" class="table table-bordered table-hover">
+      <a href="{{url('/jobs/create')}}" class="btn btn-success"> New Open Position</a> 
+      <table id="jobs-table" class="table table-bordered table-hover">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Action</th>
+            <th>Title</th>
+            <th>Location</th>
+            <th>Position</th>
+            <th>Department</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
-          @foreach($departments as $department)
+          @foreach($jobs as $job)
           <tr>
-            <td>{{ $department->name }}</td>
-            <td>{{ $department->description }}</td>
+            <td>{{ $job->title }}</td>
+            <td>{{ $job->location }}</td>
             <td>
-              <form action='{{ url("/departments/$department->id") }}' method="POST">
-                <a href='{{url("/departments/$department->id/edit")}}' class="btn btn-warning" title='Edit'> 
+              @if($job->position)
+                {{ $job->position->name }}
+              @else
+               -
+              @endif
+            </td>
+            <td>{{ $job->department->name }}</td>
+            <td>{{ $job->start_date }}</td>
+            <td>{{ $job->end_date }}</td>
+            <td>
+              <form action='{{ url("/jobs/$job->id") }}' method="POST">
+                <a href='{{url("/jobs/$job->id/edit")}}' class="btn btn-warning" title='Edit'> 
                   Edit
                 </a>
 
