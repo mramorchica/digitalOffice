@@ -15,7 +15,7 @@
                     <!-- /.card-header -->
 
                     <!-- form start -->
-                    <div class="jumbotron">
+                    <div class="card-body">
                         <img src="{{ asset('images/news_images/' . $news->image) }}" class="img-fluid mb-2" alt="white sample" />
                         <p>{{ $news->content }}</p>
                         <p>
