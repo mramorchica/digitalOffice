@@ -2,7 +2,7 @@
 
 @section('content')
 	<!-- Main content -->
-	<section>
+	<section class="row">
 		@foreach ($jobs as $job)
 			<div class="col-md-3">
 				<div class="card card-primary collapsed-card">

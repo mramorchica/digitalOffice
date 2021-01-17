@@ -13,7 +13,7 @@ class Job extends Model
 
     public function position()
     {
-        return $this->belongsTo('App\Models\Position');
+        return $this->belongsTo('App\Models\Position', 'position_id', 'id');
     }
 
     public function department()
