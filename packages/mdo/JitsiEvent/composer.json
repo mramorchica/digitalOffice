@@ -1,0 +1,19 @@
+{
+    "name": "mdo/jitsi-event",
+    "description": "managing events",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "cvexa",
+            "email": "cvexxxxa@abv.bg"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Mdo\\JitsiEvent\\": "packages/mdo/JitsiEvent/src/"
+        }
+    },
+    "require": {}
+}
