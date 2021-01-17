@@ -16,8 +16,12 @@ class NewsController extends Controller
      */
     public function index()
     {
-       $news = News::with('category')->get();
-       dd( $news );
+       $news = News::with('category', 'author')
+                ->orderBy('date_published', 'desc')
+                ->get();
+
+      return view('news.news.index', compact('news'));
+      
     }
 
     /**
@@ -29,7 +33,7 @@ class NewsController extends Controller
     {
         $categories = NewsCategory::all();       
         
-        return view('news.create', compact('categories'));
+        return view('news.news.create', compact('categories'));
     }
     
     /**
@@ -48,30 +52,27 @@ class NewsController extends Controller
         $news->is_public = $request->is_public;
         $news->category_id = $request->news_category;
         $news->author_id = Auth::user()->id;
+        $file = $request->file('image');
+
         $img_name = str_replace(' ', '-', $request->news_title);
+        $file = $request->file('image');
 
+        $extension = $file->getClientOriginalExtension();
+        $filename = $img_name . '.' . $extension;
 
-        $extension = $request->image->extension();
+        //Move Uploaded File
+        $destinationPath = 'images/news_images';
+        $file->move( $destinationPath, $filename );
+        
 
-        if ($request->has('image')) {
-            // Get image file
-            $image = $request->file('image');
-            // Make a image name based on user name and current timestamp
-            $name = str_replace(' ', '-', $request->news_title) . '_' . time();
-            // Define folder path
-            $folder = '/news_images/';
-            // Make a file path where image will be stored [ folder path + file name + file extension]
-            $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
-            // Upload image
-                    
-            $image->storeAs('/public', $filePath);
-            // Set user profile image path in database to filePath
-           
-        }
+       $news->image = $filename;
 
-        $news->image = $filePath;
+        $news->save();
 
-        $news->save();        
+        $message = 'News created successfuly!';
+
+        return redirect()->route('news_categories.index')
+        ->with('success', $message);
     }
 
     /**
@@ -80,9 +81,10 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(News $news)
     {
-        //
+        
+        return view('news.news.show', compact('news'));
     }
 
     /**
@@ -91,9 +93,11 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(News $news)
     {
-        //
+        $categories = NewsCategory::all();
+      
+        return view('news.news.edit', compact('categories', 'news'));
     }
 
     /**
@@ -103,9 +107,39 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, News $news)
     {
-        //
+        //TO DO CHECK IF IMAGE UPLOADED ELSE SAVE OLD FILENAME
+        //TO DO CHECK IF IMAGE UPLOADED - DELETE OLD FILE
+
+        $file = $request->file('image');
+
+        $img_name = str_replace(' ', '-', $request->title);
+        $file = $request->file('image');
+
+        $extension = $file->getClientOriginalExtension();
+        $filename = $img_name . '.' . $extension;
+
+        //Move Uploaded File
+        $destinationPath = 'images/news_images';
+        $file->move($destinationPath, $filename);
+
+
+        $news->update([
+            'title' => $request->title,
+            'content' => $request->content,
+            'date_published'=> $request->date_published,
+            'is_public' => $request->is_public,
+            'category_is' => $request->news_category,
+            'author_id' => Auth::user()->id,
+            'image' => $filename
+            ]);
+
+                
+        $message = 'News edited successfuly!';
+
+        return redirect()->route('news.index')
+        ->with('success', $message);
     }
 
     /**
@@ -116,6 +150,14 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $news = News::find($id);
+        $news->delete();
+
+        //TO DO DELETE IMAGE
+
+        $message = 'News category deleted!';
+
+        return redirect()->back()
+            ->with('success', $message);
     }
 }
