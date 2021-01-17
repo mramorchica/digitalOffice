@@ -71,7 +71,7 @@ class NewsController extends Controller
 
         $message = 'News created successfuly!';
 
-        return redirect()->route('news_categories.index')
+        return redirect()->route('news.index')
         ->with('success', $message);
     }
 

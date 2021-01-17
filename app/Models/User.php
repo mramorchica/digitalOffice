@@ -48,4 +48,8 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\Models\Department');
     }
+
+    public function slack_notifications(){
+        return $this->hasMany('App\Models\SlackNotifications');
+    }
 }
