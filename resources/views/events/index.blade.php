@@ -23,6 +23,7 @@
 				<table id="events" class="table table-bordered table-striped">
 					<thead>
 					<tr>
+						<th>-</th>
 						<th>Title</th>
 						<th>Description</th>
 						<th>Start</th>
@@ -38,6 +39,11 @@
 					<tbody>
 					@forelse($events as $event)
 						<tr>
+							<td>
+								<a href="{{route('events.show',$event->id)}}">
+									<button class="btn btn-info">view</button>
+								</a>
+							</td>
 							<td>{{$event->title}}</td>
 							<td>{{$event->description}}</td>
 							<td>{{$event->start}}</td>
@@ -76,6 +82,7 @@
 					</tbody>
 					<tfoot>
 					<tr>
+						<th>-</th>
 						<th>Title</th>
 						<th>Description</th>
 						<th>Start</th>

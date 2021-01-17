@@ -10,6 +10,7 @@ use Mdo\JitsiEvent\JitsiEvent;
 
 class EventController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -57,9 +58,40 @@ class EventController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Event $event)
     {
-        //
+        if($event->start > Carbon::now()) {
+            if (Auth::user() && Auth::user()->role !== 'admin') {
+
+                if ($event->isDraft == 0) {
+
+                    return view('events.show', ['event' => $event]);
+                }
+
+                redirect()->route('events.index');
+            }
+            return view('events.show', ['event' => $event]);
+        }
+        return redirect()->route('events.index');
+    }
+
+    //used to show to non admin users list of all events
+    public function showList()
+    {
+        if(Auth::user()) {
+            $events = Event::orderBy('start', 'DESC')->where([
+                ['isDraft', 0],
+                ['start', '>', Carbon::now()]
+            ])->get();
+        }else{
+            $events = $events = Event::orderBy('start', 'DESC')->where([
+                ['isDraft', 0],
+                ['start', '>', Carbon::now()],
+                ['isPublic',1]
+            ])->get();
+        }
+
+        return view('events.showList', ['events' => $events]);
     }
 
     /**
@@ -108,17 +140,17 @@ class EventController extends Controller
 
     public function meet($meetCode)
     {
-        $event = Event::where('link',$meetCode)->first();
-        if($event->isPublic < 1){
-            if(!Auth::user()){
+        $event = Event::where('link', $meetCode)->first();
+        if ($event->isPublic < 1) {
+            if (!Auth::user()) {
                 return redirect()->route('login');
             }
         }
         $userData = '';
-        if(Auth::user()){
+        if (Auth::user()) {
             $userData = Auth::user()->name;
         }
 
-        return JitsiEvent::makeMeet($meetCode,$userData);
+        return JitsiEvent::makeMeet($meetCode, $userData);
     }
 }

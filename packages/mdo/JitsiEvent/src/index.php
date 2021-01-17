@@ -6,15 +6,15 @@ class JitsiEvent
 {
     public static function createLink(String $title)
     {
-        $link = '/meet/MDO';
+        $link = 'MDO';
         $link .= str_replace(' ', '', $title);
-        $link .= rand(100,10000);
+        $link .= rand(100, 10000);
 
         return $link;
     }
 
-    public static function makeMeet($meetCode,$userData)
+    public static function makeMeet($meetCode, $userData)
     {
-        return view('JitsiEvent::meeting',['meetCode' => $meetCode,'userData' => $userData]);
+        return view('JitsiEvent::meeting', ['meetCode' => $meetCode, 'userData' => $userData]);
     }
 }
