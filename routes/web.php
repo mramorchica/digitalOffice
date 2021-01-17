@@ -25,5 +25,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('news', 'NewsController');
-Route::resource('news_categories', 'NewsCategoriesController')->except('show');
+Route::middleware('auth')->group(function () {
+	Route::resource('positions', 'Employees\PositionController');
+	Route::resource('departments', 'Employees\DepartmentController');
+	Route::resource('users', 'Employees\UserController');
+  
+  Route::resource('news', 'NewsController');
+  Route::resource('news_categories', 'NewsCategoriesController')->except('show');	
+});
