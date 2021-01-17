@@ -21,7 +21,7 @@ class CreateJobsTable extends Migration
             $table->text('requirements');
             $table->text('responsibilities');
             $table->text('our_offer');
-            $table->date('start_date')->default(\DB::raw('CURRENT_TIMESTAMP'));
+            $table->date('start_date');
             $table->date('end_date')->nullable();
             $table->string('how_to_apply')->nullable();
             $table->foreignId('position_id')->nullable();
