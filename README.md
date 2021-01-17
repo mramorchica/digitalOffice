@@ -7,13 +7,13 @@ Staff Communication management system for big organisations. A project developed
 The project is uploaded on live server
 
 ## Techologies
-Laravel 7.0
-MySQL
+Laravel 7.0,
+MySQL,
 HTML, CSS, JavaScript & jQuery
 
 
 
 ## Integrations
-Jitsi
+Jitsi,
 Slack
 
