@@ -30,6 +30,6 @@ Route::middleware('auth')->group(function () {
 	Route::resource('departments', 'Employees\DepartmentController');
 	Route::resource('users', 'Employees\UserController');
   
-  Route::resource('news', 'NewsController');
-  Route::resource('news_categories', 'NewsCategoriesController')->except('show');	
+	Route::resource('news', 'NewsController');
+	Route::resource('news_categories', 'NewsCategoriesController')->except('show');	
 });
