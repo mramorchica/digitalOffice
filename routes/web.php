@@ -17,10 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test1', function () {
-    return view('test1');
-});
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -35,11 +31,11 @@ Route::middleware('auth')->group(function () {
 	Route::resource('positions', 'Employees\PositionController');
 	Route::resource('departments', 'Employees\DepartmentController');
 	Route::resource('users', 'Employees\UserController');
-  
-  Route::resource('news', 'NewsController');
-  Route::resource('news_categories', 'NewsCategoriesController')->except('show');
-
   Route::resource('events', 'EventController')->except(['index','show']);
   Route::get('events','EventController@index')->name('events.index')->middleware('checkUserRoleForEvents');
+	Route::resource('news', 'NewsController');
+	Route::resource('news_categories', 'NewsCategoriesController')->except('show');
+	Route::get('new-slack-messages', 'SlackNotificationsController@check_messages')->name('check_slack_messages');
+	Route::get('read-new-slack-messages', 'SlackNotificationsController@read_new_messages')->name('read_new_messages');
 });
 

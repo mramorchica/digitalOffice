@@ -16,8 +16,14 @@ class News extends Model
     'category_id'
    ];
 
+   protected $dates = ['date_published'];
    public function category()
    {
       return $this->belongsTo('App\Models\NewsCategory');
+   }
+
+   public function author()
+   {
+      return $this->belongsTo('App\Models\User');
    }
 }

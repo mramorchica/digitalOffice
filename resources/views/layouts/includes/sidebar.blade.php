@@ -34,22 +34,44 @@
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
            with font-awesome or any other icon font library -->
+          @if(Auth::user()->role == config('consts.ROLE_ADMIN'))
+            <li class="nav-item">
+              <a href="{{ url('positions') }}" class="dropdown-item">
+                  <i class="nav-icon fa fa-user-alt"></i>
+                  Positions
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{{ url('departments') }}" class="dropdown-item">
+                  <i class="nav-icon fa fa-building"></i>
+                  Departments
+              </a>
+            </li>
+          @endif
           <li class="nav-item">
-            <a href="{{ url('positions') }}">
-                <i class="nav-icon fa fa-user-alt"></i>
-                Positions
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ url('departments') }}">
-                <i class="nav-icon fa fa-building"></i>
-                Departments
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ url('users') }}">
+            <a href="{{ url('users') }}" class="dropdown-item">
                 <i class="nav-icon fa fa-users"></i>
                 Users
+            </a>
+          </li>
+          @if(Auth::user()->role == config('consts.ROLE_ADMIN'))
+            <li class="nav-item">
+              <a href="{{ url('news_categories') }}" class="dropdown-item">
+                  <i class="nav-icon fa fa-file-alt"></i>
+                  News Categories
+              </a>
+            </li>
+          @endif
+          <li class="nav-item">
+            <a href="{{ url('news') }}" class="dropdown-item">
+                <i class="nav-icon fa fa-newspaper"></i>
+                News
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url('events') }}" class="dropdown-item">
+                <i class="nav-icon fa fa-calendar-alt"></i>
+                Events
             </a>
           </li>
           
