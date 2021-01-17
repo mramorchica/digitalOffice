@@ -10,7 +10,6 @@ class SlackNotificationsController extends Controller
 {
     public function receive_messages(Request $request)
     {
-//       
         $notif = new SlackNotification;
 
         $notif->message = 'slack message';

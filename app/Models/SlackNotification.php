@@ -22,25 +22,35 @@ class SlackNotification extends Model
                         ->where('user_id', Auth::user()->id)
                         ->get();
 
-        $new_messages = DB::table('slack_notifications')
-                        ->select(DB::raw('count(*) as num'))
-                        ->where('created_at', '<', $last_checkup[0]->last_checkup )
-                        ->get();
+        $new_messages_query = DB::table('slack_notifications')->select('*');
+        
+        if(count($last_checkup) > 0){
+            $new_messages_query->where('created_at', '>', $last_checkup[0]->last_checkup );
+        }
+        
+        $new_messages = $new_messages_query->get();
 
-        return $new_messages[0]->num;
+        if(count($new_messages) > 0){
+            return $new_messages[0]->num;    
+        } else {
+            return 0;
+        }
     }
 
     public static function read_new_user_messages()
     {
         $last_checkup = DB::table('slack_notifications_users')
-        ->select('*')
+            ->select('*')
             ->where('user_id', Auth::user()->id)
             ->get();
 
-        $new_messages = DB::table('slack_notifications')
-        ->select('*')
-        ->where('created_at', '>', $last_checkup[0]->last_checkup )
-            ->get();
+        $new_messages_query = DB::table('slack_notifications')->select('*');
+        
+        if(count($last_checkup) > 0){
+            $new_messages_query->where('created_at', '>', $last_checkup[0]->last_checkup );
+        }
+        
+        $new_messages = $new_messages_query->get();
 
         self::user_read_new_messages();
             
