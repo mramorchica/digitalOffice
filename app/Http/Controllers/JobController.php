@@ -61,9 +61,18 @@ class JobController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Job $job)
     {
-        //
+        return view('jobs.show');
+    }
+
+    public function showList()
+    {
+        $jobs = Job::with(['position', 'department', 'responsibleUser'])->get();
+
+        return view('jobs.showList', [
+            'jobs' => $jobs,
+        ]);
     }
 
     /**

@@ -75,9 +75,15 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ url('jobs') }}" class="dropdown-item">
+            <a href="{{ url('jobs/show-list') }}" class="dropdown-item">
                 <i class="nav-icon fa fa-suitcase"></i>
-                Open Positions
+                Open Positions List
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url('jobs') }}" class="dropdown-item">
+                <i class="nav-icon fa fa-cog"></i>
+                Manage Open Positions
             </a>
           </li>
           
