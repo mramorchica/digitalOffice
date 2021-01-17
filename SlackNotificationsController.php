@@ -8,8 +8,8 @@ use App\Models\SlackNotification;
 
 class SlackNotificationsController extends Controller
 {
-    public function receive_messages(Request $request)
-    {
+	public function receive_messages(Request $request)
+	{
 //         token=CCVakjSala0nFaCIsnKjPqLv
 // team_id=T0001
 // team_domain=example
@@ -24,11 +24,10 @@ class SlackNotificationsController extends Controller
 // text=googlebot: What is the air-speed velocity of an unladen swallow?
 
 // trigger_word=googlebot:
-        $notif = new SlackNotification;
+		$notif = new SlackNotification;
 
-        $notif->message = 'slack message';
-        // $notif->message = $request->text;
+		$notif->message = $request->text;
 
-        $notif->save();
-    }
+		$notif->save();
+	}
 }
